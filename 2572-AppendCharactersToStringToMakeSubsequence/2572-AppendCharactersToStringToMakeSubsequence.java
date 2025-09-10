@@ -1,0 +1,13 @@
+// Last updated: 9/10/2025, 6:21:46 PM
+class Solution {
+  public int appendCharacters(String s, String t) {
+    int i = 0;
+
+    for (final char c : s.toCharArray())
+      if (c == t.charAt(i))
+        if (++i == t.length())
+          return 0;
+
+    return t.length() - i;
+  }
+}
