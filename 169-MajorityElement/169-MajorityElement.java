@@ -1,4 +1,4 @@
-// Last updated: 10/10/2025, 1:43:38 AM
+// Last updated: 10/10/2025, 1:43:51 AM
 class Solution {
   public int majorityElement(int[] nums) {
     HashMap<Integer,Integer> map = new HashMap<>();
@@ -18,6 +18,6 @@ class Solution {
         }
     }
 
-    return -1;
+    return 0;
   }
 }
