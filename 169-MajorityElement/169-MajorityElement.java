@@ -1,11 +1,11 @@
-// Last updated: 10/10/2025, 1:42:32 AM
+// Last updated: 10/10/2025, 1:43:38 AM
 class Solution {
   public int majorityElement(int[] nums) {
     HashMap<Integer,Integer> map = new HashMap<>();
     for(int num : nums){
         map.put(num, map.getOrDefault(num,0)+1);
     }
-    int n = nums.length;
+    int n = nums.length/2;
     // for(Integer key : map.keySet()){
     //     if(map.get(key) > n/2){
     //         return key;
@@ -13,7 +13,7 @@ class Solution {
     // }
 
     for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
-        if(entry.getValue() > n/2){
+        if(entry.getValue() > n){
             return entry.getKey();
         }
     }
