@@ -1,17 +1,17 @@
-// Last updated: 10/12/2025, 10:17:15 PM
+// Last updated: 10/12/2025, 10:18:02 PM
 class Solution {
     public boolean checkIfPangram(String sentence) {
         
-        char[] chrr = sentence.toCharArray();
-        Arrays.sort(chrr);
+        char[] c = sentence.toCharArray();
+        Arrays.sort(c);
         
-        int uniqueCount = 0;
-        for(int i = 0; i < chrr.length ; i++){
-            if( i == 0 || chrr[i] != chrr[i-1]){
-                uniqueCount++;
+        int uc = 0;
+        for(int i = 0; i < c.length ; i++){
+            if( i == 0 || c[i] != c[i-1]){
+                uc++;
             }
         }
         
-        return (uniqueCount == 26);
+        return (uc == 26);
     }
 }
