@@ -1,4 +1,4 @@
-// Last updated: 4/10/2026, 10:38:43 AM
+// Last updated: 4/10/2026, 11:34:57 AM
 1/**
 2 * Definition for a binary tree node.
 3 * public class TreeNode {
@@ -15,29 +15,37 @@
 14 * }
 15 */
 16class Solution {
-17    public List<Integer> rightSideView(TreeNode root) {
-18        List<Integer> ls = new ArrayList<>();
+17    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+18        List<List<Integer>> res = new ArrayList<>();
 19        Queue<TreeNode> q = new LinkedList<>();
-20        if(root == null){
-21            return ls;
-22        }
-23        q.add(root);
-24        // ls.add(root.val);
-25        while(q.size() > 0){
-26            int c = q.size();
-27            for(int i = 0;  i < c; i++){
-28                TreeNode n = q.poll();
-29                if(i == c-1){
-30                    ls.add(n.val);
-31                }
-32                if(n.left != null){
-33                    q.add(n.left);
-34                }
-35                if(n.right != null){
-36                    q.add(n.right);
-37                }
-38            }
-39        }
-40        return ls;
-41    }
-42}
+20        if(root == null) return res;
+21        int flag = 0;
+22        q.add(root);
+23        while(q.size() > 0){
+24            int c = q.size();
+25            
+26            List<Integer> ls = new ArrayList<>();
+27            
+28                for(int i = 0; i < c; i++){
+29                    TreeNode n = q.poll();
+30                    if(flag % 2 == 0){
+31                        ls.addLast(n.val);
+32                    }
+33                    else{
+34                        ls.addFirst(n.val);
+35                    }
+36                    if(n.left != null){
+37                        q.add(n.left);
+38                    }
+39                    if(n.right != null){
+40                        q.add(n.right);
+41                    }
+42                }
+43            
+44            
+45            flag++;
+46            res.add(ls);
+47        }
+48        return res;
+49    }
+50}
